@@ -56,7 +56,7 @@ class IssuedInvoice extends BaseModel
      */
     public function getAmountPayed(){
     	$total = 0;
-    	foreach(Charge::where(['ChargeSourceId' => $this->{$this->primaryKey}], $this->companyId)->getFromInvoice() as $charge)
+    	foreach(Charge::where(['ChargeSourceId' => $this->{$this->primaryKey}], $this->companyId)->get() as $charge)
     		$total += ($charge->ChargeAmount * ($charge->ChargeIsRefund ? -1 : 1));
     	
     	return $total;

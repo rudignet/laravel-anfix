@@ -27,13 +27,4 @@ class Charge extends BaseModel
     protected $create = true;
     protected $delete = true;
 
-    /**
-     * Consulta de cobros a clientes vinculados a facturas emitidas
-     * @param array $fields = [] Campos a devolver
-     * @param int $maxRows = null Máximo de filas a mostrar
-     * @return array BaseModel
-     */
-    public function getFromInvoice(array $fields = [], $maxRows = null){
-        return $this->get($fields,$maxRows,'searchfor-issuedinvoice');
-    }
 }
