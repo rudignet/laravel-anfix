@@ -31,14 +31,14 @@ use Lucid\Anfix\Exceptions\AnfixException;
  */
 class BaseModel
 {
-    protected $applicationId; //Obligatorio
+    protected $applicationId; //Obligatorio, Identificador de la App Anfix, este identificador asocia la Url base por defecto conforme a config/anfix.php
 
-    protected $Model; //Opcional
-    protected $primaryKey; //Opcional
-    protected $apiBaseUrl; //Opcional
-    protected $update = true; //Por defecto
-    protected $create = false; //Por defecto
-    protected $delete = false; //Por defecto
+    protected $Model; //Opcional, Nombre de la entidad en Anfix, por defecto será el nombre de la clase
+    protected $primaryKey; //Opcional, Nombre de la clave primaria en Anfix, por defecto {$Model}Id
+    protected $apiBaseUrl; //Opcional, Url de la API a la que conectar, por defecto se obtiene de config/anfix en función del applicationId
+    protected $update = true; //Por defecto se permite la actualización
+    protected $create = false; //Por defecto no se permite la creación
+    protected $delete = false; //Por defecto no se permite el borrado
 
 
     private $draft = [];
