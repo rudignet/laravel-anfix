@@ -31,7 +31,9 @@ class IssuedInvoice extends BaseModel
      * Crea un pago de una factura
      * @param string $date
      * @param float $amount
-     * @throws \Exception
+     * @return Charge
+     * @throws \AnfixException
+     * @throws \AnfixResultException
      */
     public function createPayment($date, $amount){
         $formapago = $this->IssuedInvoicePayChargeMethodId == 'b' ? 'Tarjeta' : 'Transferencia';
@@ -44,5 +46,19 @@ class IssuedInvoice extends BaseModel
             'ChargeComments' => 'Pago mediante '.$formapago,
             'ChargeIsRefund' => $amount < 0
         ], $this->companyId);
+    }
+    
+    /**
+     * Devuelve el importe total pagado para la factura actual
+     * @return float
+     * @throws \AnfixException
+     * @throws \AnfixResultException
+     */
+    public function getAmountPayed(){
+    	$total = 0;
+    	foreach(Charge::where(['ChargeSourceId' => $this->{$this->primaryKey}], $this->companyId)->getFromInvoice() as $charge)
+    		$total += ($charge->ChargeAmount * ($charge->ChargeIsRefund ? -1 : 1));
+    	
+    	return $total;
     }
 }
