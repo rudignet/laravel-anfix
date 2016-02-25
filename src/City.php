@@ -28,6 +28,8 @@ class City extends BaseModel
      * Busca una ciudad por su código postal
      * @param $postalCode
      * @param $countryId
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return mixed|null
      */
     public static function findByPostalCode($postalCode,$countryId){

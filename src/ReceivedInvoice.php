@@ -32,7 +32,9 @@ class ReceivedInvoice extends BaseModel
      * Crea un cobro de una factura
      * @param string $date
      * @param float $amount
-     * @throws \Exception
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
+     * @return Payment
      */
     public function createPayment($date, $amount){
         $formapago = $this->IssuedInvoicePayChargeMethodId == 'c' ? 'Domiciliación' : 'Tarjeta';

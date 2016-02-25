@@ -112,6 +112,8 @@ class BaseModel
 
     /**
      * Crea o actualiza el objeto Anfix
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public function save(){
@@ -129,7 +131,8 @@ class BaseModel
 
     /**
      * Elimina un objeto de la API
-     * @throws \Exception
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return bool
      */
     public function delete(){
@@ -147,6 +150,8 @@ class BaseModel
      * @param array $fields = [] Campos a devolver
      * @param int $maxRows = null Máximo de filas a mostrar
      * @param string $path = 'search' Path de la función en anfix
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return array BaseModel
      */
     public function get(array $fields = [], $maxRows = null, $path = 'search'){
@@ -183,7 +188,9 @@ class BaseModel
      * @param array $params
      * @return BaseModel
      * @param string $path = 'update' Path de la función en anfix
-     * @throws \Exception
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
+     * @response BaseModel
      */
     public function update(array $params, $path = 'update'){
         if(!$this->update)
@@ -217,6 +224,8 @@ class BaseModel
      * @param array $params
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
      * @param string $path = 'create' Path de la función en anfix
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function create(array $params, $companyId = null, $path = 'create'){
@@ -254,6 +263,8 @@ class BaseModel
      * @param $id
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
      * @param string $path = 'delete' Path de la función en anfix
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return bool
      */
     public static function destroy($id, $companyId = null, $path = 'delete'){
@@ -292,6 +303,8 @@ class BaseModel
      * Devuelve un objeto por su id o null si no existe
      * @param $id
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function find($id, $companyId = null){
@@ -304,7 +317,8 @@ class BaseModel
      * @param $id
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
      * @return BaseModel
-     * @throws \Exception
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      */
     public static function findOrFail($id, $companyId = null){
         $obj = static::find($id, $companyId);
@@ -317,6 +331,8 @@ class BaseModel
     /**
      * Devuelve todos los elementos de la colección
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return array BaseModel
      */
     public static function all($companyId = null){
@@ -328,6 +344,8 @@ class BaseModel
      * Realiza la consulta y devuelve el primer elemento
      * @param array $params
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function first(array $params, $companyId = null){
@@ -342,6 +360,8 @@ class BaseModel
      * Devuelve el primer elemento de la colección o un nuevo objeto
      * @param array $params
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function firstOrNew(array $params, $companyId = null){
@@ -356,6 +376,8 @@ class BaseModel
      * Devuelve el primer elemento de la colección o crea uno nuevo si no existe
      * @param array $params
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function firstOrCreate(array $params, $companyId = null){
@@ -370,6 +392,8 @@ class BaseModel
      * Devuelve el primer elemento de la colección o genera una Excepción
      * @param array $params
      * @param string $companyId Identificador de la compañia, sólo necesario en algunas entidades
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      * @return BaseModel
      */
     public static function firstOrFail(array $params, $companyId = null){

@@ -32,8 +32,8 @@ class IssuedInvoice extends BaseModel
      * @param string $date
      * @param float $amount
      * @return Charge
-     * @throws \AnfixException
-     * @throws \AnfixResultException
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      */
     public function createPayment($date, $amount){
         $formapago = $this->IssuedInvoicePayChargeMethodId == 'b' ? 'Tarjeta' : 'Transferencia';
@@ -51,8 +51,8 @@ class IssuedInvoice extends BaseModel
     /**
      * Devuelve el importe total pagado para la factura actual
      * @return float
-     * @throws \AnfixException
-     * @throws \AnfixResultException
+     * @throws Exceptions\AnfixException
+     * @throws Exceptions\AnfixResponseException
      */
     public function getAmountPayed(){
     	$total = 0;
