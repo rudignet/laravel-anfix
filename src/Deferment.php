@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class Deferment extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/company/deferment/';
+    protected $apiUrlSufix = 'company/deferment/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

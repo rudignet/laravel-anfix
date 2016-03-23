@@ -24,7 +24,7 @@ class TaxValue extends BaseModel
 {
     protected $applicationId = '3';
     protected $Model = 'Vat';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/common/structuraldata/tax/value/';
+    protected $apiUrlSufix = 'common/structuraldata/tax/value/';
     protected $update = true;
     protected $create = true;
     protected $delete = true;

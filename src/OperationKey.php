@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class OperationKey extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/common/structuraldata/accountentryoperationkey/';
+    protected $apiUrlSufix = 'common/structuraldata/accountentryoperationkey/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class TaxOffice extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/common/structuraldata/taxoffice/';
+    protected $apiUrlSufix = 'common/structuraldata/taxoffice/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

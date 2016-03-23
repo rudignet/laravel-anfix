@@ -36,6 +36,7 @@ class BaseModel
     protected $Model; //Opcional, Nombre de la entidad en Anfix, por defecto será el nombre de la clase
     protected $primaryKey; //Opcional, Nombre de la clave primaria en Anfix, por defecto {$Model}Id
     protected $apiBaseUrl; //Opcional, Url de la API a la que conectar, por defecto se obtiene de config/anfix en función del applicationId
+    protected $apiUrlSufix; //Opcional, Sufijo que se añade a la url de la API, por defecto nombre de la entidad, si se indica apiBaseUrl no se tendrá en cuenta este parámetro
     protected $update = true; //Por defecto se permite la actualización
     protected $create = false; //Por defecto no se permite la creación
     protected $delete = false; //Por defecto no se permite el borrado
@@ -53,7 +54,7 @@ class BaseModel
             throw new AnfixException('Debe indicar un applicationId en el modelo para poder utilizar la API');
 
         if(!$this->Model)
-            $this->Model = last(explode('\\',get_called_class()));
+            $this->Model = end(explode('\\',get_called_class()));
 
         if(!empty($params))
             $this->fill(array_except($params,['wherecond']));
@@ -64,8 +65,11 @@ class BaseModel
         if($emptyDraft)
             $this->emptyDraft();
 
+        if(empty($this->apiUrlSufix))
+            $this->apiUrlSufix = strtolower($this->Model).'/';
+
         if(empty($this->apiBaseUrl))
-            $this->apiBaseUrl = \Config::get("anfix.applicationIdUrl.{$this->applicationId}").strtolower($this->Model).'/';
+            $this->apiBaseUrl = \Config::get("anfix.applicationIdUrl.{$this->applicationId}").$this->apiUrlSufix;
 
         if(empty($this->primaryKey))
             $this->primaryKey = $this->Model.'Id';

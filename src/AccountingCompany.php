@@ -20,11 +20,10 @@
 
 namespace Lucid\Anfix;
 
-class Invoice extends BaseModel
+class AccountingCompany extends BaseModel
 {
     protected $applicationId = '3';
     protected $Model = 'Company';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/company/';
     protected $update = true;
     protected $create = true;
     protected $delete = false;

@@ -20,11 +20,10 @@
 
 namespace Lucid\Anfix;
 
-class NextNumber 
+class NextNumber extends StaticModel
 {
-    private static $applicationId = 'E';
-	private static $Model = 'NextNumber';
-	private static $apiBaseUrl = 'http://apps.anfix.com/facturapro-servicios/gestiona/servicios/common/nextnumber/compute';
+    protected static $applicationId = 'E';
+	protected static $apiUrlSufix = 'common/nextnumber/';
 
 	/**
 	 * Devuelve el siguiente n�mero disponible para un tipo de entidad
@@ -32,8 +31,10 @@ class NextNumber
 	 * @param string $companyId Id de empresa
 	 */
 	public static function compute($entityTypeId, $companyId){
+	
+		self::constructStatic();
 		
-	    $result = Anfix::sendRequest(self::$apiBaseUrl,[
+	    $result = Anfix::sendRequest(self::$apiBaseUrl.'compute',[
             'applicationId' =>  self::$applicationId,
             'companyId' => $companyId,
             'inputBusinessData' => [

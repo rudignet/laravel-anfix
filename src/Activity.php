@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class Activity extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/company/activity/';
+    protected $apiUrlSufix = 'company/activity/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

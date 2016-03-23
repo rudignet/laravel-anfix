@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class EconomicActivity extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/common/structuraldata/economicactivity/';
+    protected $apiUrlSufix = 'common/structuraldata/economicactivity/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

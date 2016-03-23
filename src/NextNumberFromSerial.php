@@ -20,20 +20,21 @@
 
 namespace Lucid\Anfix;
 
-class NextNumberFromSerial 
+class NextNumberFromSerial extends StaticModel
 {
-	private static $applicationId = 'E';
-	private static $Model = 'NextNumberFromSerial';
-	private static $apiBaseUrl = 'http://apps.anfix.com/facturapro-servicios/gestiona/servicios/common/nextnumber-fromserial/compute';
+	protected static $applicationId = 'E';
+	protected static $apiUrlSufix = 'common/nextnumber-fromserial/';
 	
 	/**
-	 * Devuelve el siguiente n�mero disponible para un tipo de entidad
+	 * Devuelve el siguiente número disponible para una serie
 	 * @param array $params Debe contener [DocumentDate => 'DATE', DocumentTypeId => 'ID', SerialNum => 'SERIAL'] obligatoriamente
 	 * @param string $companyId Id de empresa
 	 */
 	public static function compute(array $params, $companyId){
-
-	    $result = Anfix::sendRequest(self::$apiBaseUrl,[
+	
+		self::constructStatic();
+		
+	    $result = Anfix::sendRequest(self::$apiBaseUrl.'compute',[
             'applicationId' =>  self::$applicationId,
             'companyId' => $companyId,
             'inputBusinessData' => [

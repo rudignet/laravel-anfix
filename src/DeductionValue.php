@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class DeductionValue extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/common/structuraldata/deduction/value/';
+    protected $apiUrlSufix = 'common/structuraldata/deduction/value/';
     protected $update = true;
     protected $create = true;
     protected $delete = true;

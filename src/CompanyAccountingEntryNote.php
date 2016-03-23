@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class CompanyAccountingEntryNote extends BaseModel
 {
     protected $applicationId = '3';
-	protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/company/accountingentryreference/note/';
+	protected $apiUrlSufix = 'company/accountingentryreference/note/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

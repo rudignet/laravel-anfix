@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class AccountingPlanParameterBase extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/accountingplan/parameter/base/';
+    protected $apiUrlSufix = 'accountingplan/parameter/base/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;

@@ -23,7 +23,7 @@ namespace Lucid\Anfix;
 class SalariedEmployee extends BaseModel
 {
     protected $applicationId = '3';
-    protected $apiBaseUrl = 'http://apps.anfix.com/contapro/conta/company/salariedemployee/';
+    protected $apiUrlSufix = 'company/salariedemployee/';
     protected $update = false;
     protected $create = false;
     protected $delete = false;
